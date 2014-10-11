@@ -2,7 +2,7 @@
 
 ## What is this project?
 
-This project is an example of the server (service provier) implementation using [Authlete](https://www.authlete.com/).  
+This project is an example of the server (service provider) implementation using [Authlete](https://www.authlete.com/).  
 The objective of this project is to illustrate how to implement authorization and resource servers with [Authlete APIs](https://www.authlete.com/authlete_web_apis.html) in **Java**.
 
 ## What can I do with this?
@@ -22,7 +22,7 @@ Please, see [Getting started](#getting-started).
 
 # Architecture
 
-The following picture describes the raugh architectures of Authlete and the sample server and how they communicate with each other.
+The following picture describes the rough architectures of Authlete and the sample server and how they communicate with each other.
 
 ![ScreenShot](screenshots/authlete_sample_server_architecture.png)  
 
@@ -47,7 +47,7 @@ Apache License, Version 2.0
 
 ## 0. Prerequisites ##
 
-* You must must be registered into [Authlete](https://www.authlete.com/) and have your **service owner credentials** (**API key** and **API secret** of the **service owner**). If you don't, sign up [here](https://www.authlete.com/signup.html) and get them.  
+* You must be registered into [Authlete](https://www.authlete.com/) and have your **service owner credentials** (**API key** and **API secret** of the **service owner**). If you don't, sign up [here](https://www.authlete.com/signup.html) and get them.  
 
 * Eclipse is assumed to be your IDE.
 
