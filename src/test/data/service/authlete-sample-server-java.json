@@ -1,0 +1,16 @@
+{
+  "serviceName": "Authlete Sample Server in Java",
+  "issuer": "https://example.com",
+  "authorizationEndpoint": "https://example.com/api/authorization",
+  "tokenEndpoint": "https://example.com/api/token",
+  "supportedScopes": [
+    { "name": "read_profile" },
+    { "name": "read_feed" },
+    { "name": "write_feed" }
+  ],
+  "supportedResponseTypes": [ "CODE" ],
+  "supportedGrantTypes": [ "AUTHORIZATION_CODE", "REFRESH_TOKEN" ],
+  "accessTokenType": "Bearer",
+  "accessTokenDuration": 31536000,
+  "refreshTokenDuration": 864000
+}

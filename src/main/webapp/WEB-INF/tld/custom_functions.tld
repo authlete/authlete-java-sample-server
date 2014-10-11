@@ -1,0 +1,19 @@
+<?xml version="1.0"?>
+<taglib xmlns="http://java.sun.com/xml/ns/j2ee"
+        xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+        xsi:schemaLocation="http://java.sun.com/xml/ns/j2ee
+            web-jsptaglibrary_2_0.xsd"
+        version="2.0">
+
+    <tlib-version>1.0</tlib-version>
+    <function>
+        <name>containsInTypes</name>
+        <function-class>com.authlete.sample.server.web.tld.TldUtils</function-class>
+        <function-signature>boolean containsInTypes(java.lang.Enum[], java.lang.String)</function-signature>
+    </function>
+    <function>
+        <name>isSupported</name>
+        <function-class>com.authlete.common.util.JoseUtils</function-class>
+        <function-signature>boolean isSupported(com.authlete.common.types.JWEAlg)</function-signature>
+    </function>
+</taglib>
