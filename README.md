@@ -28,14 +28,14 @@ The following picture describes the rough architectures of Authlete and the samp
 
 The picture above indicates the 2 important points:
 
-1. **The sample server can delegate the part of processes to Authlete via its API.**  
+1. **The sample server can delegate the part of process to Authlete via its API.**  
   
-    In terms of implementing the services that supports OAuth 2.0 and OpenID Connect, it will be one of the most bothering and time-consuming parts to implement the process of validating a bunch of parameters that are given by client applications.  
-However, the implementation of the sample server itself doesn't include the part of validation of the parameters that are given to its Authorization and Token API. Instead, it just delegates the validation task to Authlete, which processes the validation precisely based on the rules described in [RFC 6749](http://tools.ietf.org/html/rfc6749), [OpenID Connect Core 1.0](http://openid.net/specs/openid-connect-core-1_0.html) and other related specifications. This means that you can execute the accurate validation process without spending a lot of time implementing it.
+    In terms of creating the services that supports [OAuth 2.0](http://oauth.net/2/) and [OpenID Connect](http://openid.net/connect/), it will be one of the most bothering and time-consuming things to implement the process of validating a bunch of parameters given by the client applications.  
+However, when the Authorization and Token API receives the parameters from its client apps, the sample server doesn't perform the validation by itself. Instead, it just delegates the validation task to Authlete, which processes it precisely based on the rules described in [RFC 6749](http://tools.ietf.org/html/rfc6749), [OpenID Connect Core 1.0](http://openid.net/specs/openid-connect-core-1_0.html) and other related specifications.
 
 2. **The sample server doesn't host data regarding authorization.**  
   
-    As the picture above shows, Authlete hosts the data that are required for authorization processes, Then, the sample server doesn't have to design, implementation and maintenance of scalability and database. 
+    As the picture above shows, Authlete hosts the data that is required for authorization processes. Then, the sample server is free from design, implementation and maintenance of scalability and database. 
 
 
 # LICENSE
