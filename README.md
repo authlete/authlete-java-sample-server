@@ -38,7 +38,7 @@ However, the implementation of the sample server itself doesn't include the part
     As the picture above shows, Authlete hosts the data that are required for authorization processes, Then, the sample server doesn't have to design, implementation and maintenance of scalability and database. 
 
 
-# LICENCE
+# LICENSE
 
 Apache License, Version 2.0
 
@@ -170,14 +170,14 @@ If you have successfully logged in as **Joe**, let's create his client applicati
 Remember the value of "**Client Id**" and "**Redirect URIs**" on the page for later use.    
 
 ### C. Authorizing a client application & Access the protected resources ###
-After the steps above, the user **Joe** has at least one cleint application.  
+After the steps above, the user **Joe** has at least one client application.  
 Let's make some assumptions about the app as below. 
 
 * His client app accesses the protected resources information (meaning "profile" and "feed" information here) of its end users. 
 * **May** is one of the end users of his client app. 
 
 In order for **Joe**'s client app to access **May**'s protected resources, the app needs to get authorized by **May** and eventually obtain an **access token**.  
-The figure below roughly shows how this is done in what is called "**Authorizaiton Code Flow**".
+The figure below roughly shows how this is done in what is called "**Authorization Code Flow**".
 
 ![ScreenShot](screenshots/authlete_sample_server_authorization_flow.png)
 
@@ -192,7 +192,7 @@ The figure below roughly shows how this is done in what is called "**Authorizait
 	http://localhost:8080/authlete-sample-server/api/auth/authorization?client_id=${CLIENT_ID}&response_type=code&scope=read_profile+read_feed+write_feed
 	```
 	
-	For more details reagading the query parameters above, see [Authorization API Document](https://www.authlete.com/authlete_web_apis_authorization.html#auth_authorization)
+	For more details regarding the query parameters above, see [Authorization API Document](https://www.authlete.com/authlete_web_apis_authorization.html#auth_authorization)
 
 2. **UI for authorization**  
 
@@ -208,7 +208,7 @@ The figure below roughly shows how this is done in what is called "**Authorizait
 
     After authorizing the app, the authorization endpoint redirects you to the URI, ```http://authlete-sample-client-app.com/callback```, which was given as "**Redirect URIs**" when you created the app.  
 
-    As in the figure below, the URI contains a "**authorization code**" as the value of the query paramenter "**code**". 
+    As in the figure below, the URI contains a "**authorization code**" as the value of the query parameter "**code**". 
 Remember this value for the next step. Also, note that **authorization codes expire in a short time**.  Then, you have to go to the next step to use this code soon after an authorization code was issued.
 
 	![ScreenShot](screenshots/authlete_sample_server_authorization_code.png)
@@ -245,9 +245,9 @@ See ["5.1. Successful Response" of RFC 6749](http://tools.ietf.org/html/rfc6749)
 
 7. **access protected resource (with access token)**  
 
-    The sample server provides several APIs to access the protected resource. All the APIs that are difined in the sample server are described below.
+    The sample server provides several APIs to access the protected resource. All the APIs that are defined in the sample server are described below.
 
-	| Endponint | Description | Paramters |
+	| Endponint | Description | Parameters |
 	| --------- | ----------- | --------- |
 	| ```/api/resources/profile/${user_id}``` | Get the profile of a specified user | user_id: The user id associated with the profile to get.<br/>The default possible values are "joe" and "may". |
 	| ```/api/resources/feed/${feed_id}``` | Get a specified feed | feed_id: The id of a feed to get.<br/>The default possible values are 0,1,2 and 3. |
@@ -269,13 +269,13 @@ See ["5.1. Successful Response" of RFC 6749](http://tools.ietf.org/html/rfc6749)
 	    http://localhost:8080/authlete-sample-server/api/resources/feed/list/may
 		```
 		
-		As the command above shows, the access token is recieved by the endpoint accoding to "**Bearer Token Usage**", 
+		As the command above shows, the access token is received by the endpoint according to "**Bearer Token Usage**", 
 		which is recommended by [RFC6750](http://tools.ietf.org/html/rfc6750).
     
 
 8. **protected resource**  
 
-    By executing the curl command in the last part of the step.7, the folllowing JSON, which represents **May**'s feed list, is returned.
+    By executing the curl command in the last part of the step.7, the following JSON, which represents **May**'s feed list, is returned.
 
 	```
 	[  
