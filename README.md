@@ -26,21 +26,16 @@ The following picture describes the rough architectures of Authlete and the samp
 
 ![ScreenShot](screenshots/authlete_sample_server_architecture.png)  
 
-The picture above indicates the 2 important points:
+The picture above indicates two important points:
 
 1. **The sample server can delegate the part of process to Authlete via its API.**  
   
-    In terms of creating the services that supports [OAuth 2.0](http://oauth.net/2/) and [OpenID Connect](http://openid.net/connect/), it will be one of the most bothering and time-consuming things to implement the process of validating a bunch of parameters given by the client applications.  
-However, when the Authorization and Token API receives the parameters from its client apps, the sample server doesn't perform the validation by itself. Instead, it just delegates the validation task to Authlete, which processes it precisely based on the rules described in [RFC 6749](http://tools.ietf.org/html/rfc6749), [OpenID Connect Core 1.0](http://openid.net/specs/openid-connect-core-1_0.html) and other related specifications.
+    If you want to make your service support [OAuth 2.0](http://oauth.net/2/) and [OpenID Connect](http://openid.net/connect/), it will be one of the most bothering and time-consuming things to implement the process of validating a bunch of parameters given by the client applications.  
+However, the sample server doesn't perform the validation by itself, when its Authorization and Token API receives the parameters from its client apps. Instead, it just delegates the validation task to Authlete, which processes it precisely based on the rules described in [RFC 6749](http://tools.ietf.org/html/rfc6749), [OpenID Connect Core 1.0](http://openid.net/specs/openid-connect-core-1_0.html) and other related specifications.
 
 2. **The sample server doesn't host data regarding authorization.**  
   
     As the picture above shows, Authlete hosts the data that is required for authorization processes. Then, the sample server is free from design, implementation and maintenance of scalability and database. 
-
-
-# LICENSE
-
-Apache License, Version 2.0
 
 
 # Getting started
@@ -209,7 +204,7 @@ The figure below roughly shows how this is done in what is called "**Authorizati
     After authorizing the app, the authorization endpoint redirects you to the URI, ```http://authlete-sample-client-app.com/callback```, which was given as "**Redirect URIs**" when you created the app.  
 
     As in the figure below, the URI contains a "**authorization code**" as the value of the query parameter "**code**". 
-Remember this value for the next step. Also, note that **authorization codes expire in a short time**.  Then, you have to go to the next step to use this code soon after an authorization code was issued.
+Remember this value for the next step. Also, note that **authorization codes expire in a short time**.  Then, you have to go to the next step to use the code soon after it was issued.
 
 	![ScreenShot](screenshots/authlete_sample_server_authorization_code.png)
 	 
@@ -299,6 +294,11 @@ See ["5.1. Successful Response" of RFC 6749](http://tools.ietf.org/html/rfc6749)
 	    }
 	]
 	```
+
+# LICENSE
+
+Apache License, Version 2.0
+
 
 # Links
 
