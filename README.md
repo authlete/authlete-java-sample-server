@@ -295,7 +295,7 @@ See ["5.1. Successful Response" of RFC 6749](http://tools.ietf.org/html/rfc6749)
 	]
 	```
 
-# LICENSE
+# License
 
 Apache License, Version 2.0
 
