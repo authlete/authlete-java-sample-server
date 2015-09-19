@@ -19,7 +19,6 @@ package com.authlete.sample.server.api.auth;
 import javax.ws.rs.InternalServerErrorException;
 import javax.ws.rs.WebApplicationException;
 import javax.ws.rs.core.Response;
-
 import com.authlete.common.api.AuthleteApiException;
 import com.authlete.common.dto.TokenFailRequest;
 import com.authlete.common.dto.TokenFailRequest.Reason;
@@ -126,10 +125,10 @@ abstract class BaseTokenHandler extends BaseHandler
      * Issue an access token and optionally an ID token.
      * This method calls Authlete's {@code /auth/token/issue} API.
      */
-    protected Response issue(String ticket)
+    protected Response issue(String ticket, String subject)
     {
         // Call Authlete's /auth/token/issue API.
-        TokenIssueResponse response = callAuthleteTokenIssueApi(ticket);
+        TokenIssueResponse response = callAuthleteTokenIssueApi(ticket, subject);
 
         // 'action' in the response denotes the next action which
         // this service implementation should take.
@@ -159,10 +158,12 @@ abstract class BaseTokenHandler extends BaseHandler
     /**
      * Call Authlete's {@code /auth/token/issue} API.
      */
-    private TokenIssueResponse callAuthleteTokenIssueApi(String ticket)
+    private TokenIssueResponse callAuthleteTokenIssueApi(String ticket, String subject)
     {
         // Create a request for Authlete's /auth/token/issue API.
-        TokenIssueRequest request = new TokenIssueRequest().setTicket(ticket);
+        TokenIssueRequest request = new TokenIssueRequest()
+            .setTicket(ticket)
+            .setSubject(subject);
 
         // Response from the API.
         TokenIssueResponse response;

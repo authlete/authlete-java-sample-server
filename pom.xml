@@ -104,12 +104,12 @@
         <dependency>
             <groupId>com.authlete</groupId>
             <artifactId>authlete-java-common</artifactId>
-            <version>1.2</version>
+            <version>1.14</version>
         </dependency>
         <dependency>
             <groupId>com.authlete</groupId>
             <artifactId>authlete-java-client-jaxrs</artifactId>
-            <version>1.0</version>
+            <version>1.2</version>
         </dependency>
 
         <!-- Database -->

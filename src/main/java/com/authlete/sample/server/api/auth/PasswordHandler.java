@@ -17,7 +17,6 @@ package com.authlete.sample.server.api.auth;
 
 
 import javax.ws.rs.core.Response;
-
 import com.authlete.common.dto.TokenFailRequest.Reason;
 import com.authlete.common.dto.TokenResponse;
 import com.authlete.sample.server.security.Authenticator;
@@ -50,19 +49,19 @@ class PasswordHandler extends BaseTokenHandler
     Response handle()
     {
         // The credentials of the resource owner.
-        String subject  = mTokenResponse.getSubject();
+        String username = mTokenResponse.getUsername();
         String password = mTokenResponse.getPassword();
 
         // Validate the credentials.
-        boolean valid = validateCredentials(subject, password);
+        String subject = validateCredentials(username, password);
 
         // The ticket for Authlete's /auth/token/* API.
         String ticket = mTokenResponse.getTicket();
 
-        if (valid)
+        if (subject != null)
         {
             // Issue an access token and optionally an ID token.
-            return issue(ticket);
+            return issue(ticket, subject);
         }
         else
         {
@@ -72,7 +71,7 @@ class PasswordHandler extends BaseTokenHandler
     }
 
 
-    private boolean validateCredentials(String subject, String password)
+    private String validateCredentials(String subject, String password)
     {
         return Authenticator.authenticate(subject, password);
     }
