@@ -1,3 +1,5 @@
+**Deprecated**. See **[java-oauth-server](https://github.com/authlete/java-oauth-server)** instead.
+
 # Overview
 
 ## What is this project?
