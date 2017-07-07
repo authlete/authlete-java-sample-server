@@ -4,3 +4,7 @@ target/
 db/
 derby.log
 .DS_Store
+.settings
+.project
+.classpath
+
